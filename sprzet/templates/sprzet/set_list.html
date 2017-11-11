@@ -1,0 +1,67 @@
+{% extends 'sprzet/header.html' %}
+{% block content %}
+
+<title>Kreator: Sety</title>
+<style>
+      img {
+    float:right;
+    margin: 0 700 60px 1px;
+}
+</style>
+<img src="http://imageshack.com/a/img923/4387/s3Cmc1.jpg" style="width:250px;height:280px;">
+
+<p><h1>Twoje Sety</h1><a href="{% url 'dodaj_set' %}"><hr/>
+    <button type="button" class="btn btn-success">Dodaj Set</button>
+</a></p>
+
+{% if lista %}
+{% for set in lista %}
+<hr/>
+<h3 style="color:blue;">{{ set }}</h3>
+
+
+
+{% if set.latawiec %}
+<p><span style="color:#ff3333">Latawiec:</span> {{ set.latawiec }}</p>
+{% else %}
+<p style="color:gray;">--- brak latawca ---</p>
+{% endif %}
+
+{% if set.deska %}
+<p><span style="color:#ff3333">Deska:</span> {{ set.deska }}</p>
+{% else %}
+<p style="color:gray;">--- brak deski ---</p>
+{% endif %}
+
+{% if set.trapez %}
+<p><span style="color:#ff3333">Trapez:</span> {{ set.trapez }}</p>
+{% else %}
+<p style="color:gray;">--- brak trapezu ---</p>
+{% endif %}
+
+
+
+
+<a title="Edytuj" href ="{% url 'detail' set.id %}"
+   <button type="button" class="btn btn-info">Szczegóły</button>
+</a><br><br><hr/>
+
+{% endfor %}
+
+{% else %}
+<br><br><br>
+--- nie masz żadnych setów ---
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

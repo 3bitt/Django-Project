@@ -1,0 +1,99 @@
+{% extends 'sprzet/header.html' %}
+{% block content %}
+<br>
+<style>
+table { border-collapse: collapse; }
+tr { border: none; }
+td {
+  border-right: solid 2px brown;
+  border-left: solid 2px brown;
+}
+</style>
+
+{% if objekt.identyfikuj == 'Latawiec' %}
+<style>
+      img {
+    float:right;
+    margin: 0 700 100px 1px;
+}
+</style>
+<img src="http://imageshack.com/a/img922/394/3FbXK2.jpg" style="width:230px;height:350px;">
+
+<h3><span style="background-color: #ccccb3;">Producent:</span></h3> <span style="font-weight:bold; font-size:large">{{ objekt.producent }}</span><br><br>
+<h3><span style="background-color: #ccccb3;">Rozmiar:</span></h3> <span style="font-weight:bold; font-size:large">{{ objekt.rozmiar }}</span><br><br>
+<h3><span style="background-color: #ccccb3;">Typ:</span></h3> <span style="font-weight:bold; font-size:large">{{ objekt.typ }}</span><br><br>
+<br><br><br>
+
+    {% if form %}
+    <form action="{% url 'sprzet_detail_edit' objekt.identyfikuj objekt.id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="Submit" value="Zatwierdź" class="btn btn-success">
+    </form>
+
+    {% else %}
+<a type="button" class="btn btn-warning" href="{% url 'sprzet_detail_edit' objekt.identyfikuj objekt.id %}">Edytuj</a><u style="color:white">przerwaaaaa</u>
+<a type="button" class="btn btn-danger" href="{% url 'are_you_sure' objekt.identyfikuj objekt.id %}">Usuń</a>
+    {% endif %}
+
+{% endif%}
+
+
+
+{% if objekt.identyfikuj == 'Deska' %}
+<style>
+      img {
+    float:right;
+    margin: 0 700 100px 1px;
+}
+</style>
+<img src="http://imageshack.com/a/img922/6695/TEhb6k.jpg" style="width:230px;height:350px;">
+
+<h3><span style="background-color: #ccccb3;">Typ:</span></h3> <span style="font-weight:bold; font-size:large">{{ objekt.typ }}</span><br><br>
+<h3><span style="background-color: #ccccb3;">Rozmiar:</span></h3> <span style="font-weight:bold; font-size:large">{{ objekt.rozmiar }}</span><br><br>
+<h3><span style="background-color: #ccccb3;">Styl:</span></h3> <span style="font-weight:bold; font-size:large">{{ objekt.styl }}</span><br><br>
+
+<br><br><br>
+
+    {% if form %}
+    <form action="{% url 'sprzet_detail_edit' objekt.identyfikuj objekt.id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="Submit" value="Zatwierdź" class="btn btn-success">
+    </form>
+
+    {% else %}
+    <a type="button" class="btn btn-warning" href="{% url 'sprzet_detail_edit' objekt.identyfikuj objekt.id %}">Edytuj</a><u style="color:white">przerwaaaaa</u>
+    <a type="button" class="btn btn-danger" href="{% url 'are_you_sure' objekt.identyfikuj objekt.id %}">Usuń</a>
+    {% endif %}
+{% endif %}
+
+{% if objekt.identyfikuj == 'Trapez' %}
+<style>
+      img {
+    float:right;
+    margin: 0 700 100px 1px;
+}
+</style>
+<img src="http://imageshack.com/a/img922/8894/YzAOtO.jpg" style="width:250px;height:280px;">
+
+<h3><span style="background-color: #ccccb3;">Producent:</span></h3> <span style="font-weight:bold; font-size:large">{{ objekt.producent }}</span><br><br>
+<h3><span style="background-color: #ccccb3;">Rozmiar:</span></h3> <span style="font-weight:bold; font-size:large">{{ objekt.rozmiar }}</span><br><br>
+<h3><span style="background-color: #ccccb3;">Rodzaj:</span></h3> <span style="font-weight:bold; font-size:large">{{ objekt.rodzaj }}</span><br><br>
+
+<br><br><br>
+
+    {% if form %}
+    <form action="{% url 'sprzet_detail_edit' objekt.identyfikuj objekt.id %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="Submit" value="Zatwierdź" class="btn btn-success">
+    </form>
+
+    {% else %}
+<a type="button" class="btn btn-warning" href="{% url 'sprzet_detail_edit' objekt.identyfikuj objekt.id %}">Edytuj</a><u style="color:white">przerwaaaaa</u>
+<a type="button" class="btn btn-danger" href="{% url 'are_you_sure' objekt.identyfikuj objekt.id %}">Usuń</a>
+    {% endif %}
+{% endif %}
+
+{% endblock %}

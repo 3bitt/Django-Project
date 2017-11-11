@@ -1,0 +1,25 @@
+
+
+
+
+<h1>Jesteś pewny ze chcesz usunąć {{objekt.identyfikuj }}: "{{ objekt }}" ?</h1>
+
+
+
+
+
+
+<br><br>
+
+{% if objekt.identyfikuj == 'Set'  %}
+
+<a style="color:red;" href="{% url 'detail' objekt.id %}"><strong style="font-size:300%;">NIE</strong></a>
+{% else %}
+<a style="color:red;" href="{% url 'sprzet_detail' objekt.identyfikuj objekt.id %}"><strong style="font-size:300%;">NIE</strong></a>
+{% endif %}
+<strong style="color:white">troooooooooche przestrzeni</strong>
+<a style="color:green" href="{% url 'usun_objekt' objekt.identyfikuj objekt.id %}"><strong style="font-size:150%;">TAK</strong></a>
+
+
+
+

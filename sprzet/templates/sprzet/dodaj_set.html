@@ -1,0 +1,14 @@
+{% extends 'sprzet/header.html' %}
+{% block content %}
+
+
+
+<form action="{% url 'dodaj_set' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p}}
+    <input type="Submit" value="OK" class="btn btn-success">
+</form>
+<br><br>
+
+<a href="{% url 'set_list' %}">Powrót</a>
+{% endblock %}

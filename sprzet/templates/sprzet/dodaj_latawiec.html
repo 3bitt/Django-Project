@@ -1,0 +1,28 @@
+{% extends 'sprzet/header.html' %}
+{% block content %}
+<style>
+      img {
+    float:right;
+    margin: 0 700 100px 1px;
+}
+</style>
+<img src="http://imageshack.com/a/img922/394/3FbXK2.jpg" style="width:200px;height:350px;">
+<h1>Latawiec</h1>
+
+
+<form action="{% url 'dodaj_latawiec' %}" method="POST">
+      {% csrf_token %}
+      {{ latawiec.as_p }}
+      <input type="Submit" value="OK" class="btn btn-success">
+</form>
+<br>
+<a href="{% url 'sprzet_list' %}">
+      <button type="button" class="btn btn-primary"><<< Wróć</button>
+</a>
+<a href="{% url 'dodaj_deske' %}">
+      <button type="button" class="btn btn-primary">Przejdź dalej >>></button>
+</a>
+
+
+
+{% endblock %}

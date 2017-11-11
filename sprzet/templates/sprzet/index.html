@@ -1,0 +1,34 @@
+{% extends 'sprzet/header.html' %}
+{%block content %}
+<title>Kreator: Start</title>
+
+<style>
+      img {
+    float:right;
+    margin: 0 5 100px 1px;
+}
+</style>
+<img src="http://imageshack.com/a/img922/6462/VTg0gB.jpg" style="width:550px;height:280px;">
+
+
+<h1>Stwórz swój set kitesurfingowy!</h1>
+<hr />
+<h3>Set to komplet jakiegoś sprzętu, w tym przypadku kitesurfingowego.</h3>
+<h3>Możesz tutaj złożyć swój własny set, na którym chciałbyś popływać.</h3>
+<hr />
+<h4>Zanim zaczniesz składać set, <a href="{% url 'sprzet_list' %}"><strong>dodaj sprzęt.</strong></a> </h4>
+<hr />
+
+{# <a href="{% url 'dodaj_set' %}">dodaj set</a> #}
+
+<br>
+{% if lista %}
+<p style="font-size:large"><strong>Twoje sety:</strong></p>
+    {% for obj in lista %}
+<li>
+    <a title="detail" href ="{% url 'detail' obj.id %}">{{ obj }}</a><br>
+</li>
+    {% endfor %}
+{% endif %}
+
+{% endblock %}

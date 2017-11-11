@@ -1,0 +1,119 @@
+{% extends 'sprzet/header.html' %}
+{% block content %}
+<title>Kreator: Sprzęt</title>
+<style>
+      img {
+    float:right;
+    margin: 0 700 10px 1px;
+}
+</style>
+<img src="http://imageshack.com/a/img924/2708/fIy8ue.jpg" style="width:280px;height:250px;">
+
+<h1>Twój sprzęt</h1>
+<hr/>
+
+<a title="Dodaj sprzęt" href="{% url 'dodaj_latawiec' %}">
+    <button type="button" class="btn btn-success">Dodaj sprzęt</button>
+</a><hr/>
+<br><br><br>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4">
+			<table class="table table-condensed table-hover">
+				<thead>
+					<tr>
+						<th>
+							Latawce
+						</th>
+						</tr>
+				</thead>
+				<tbody>
+					<tr class="success">
+
+
+							{% if latawiec %}
+                            {% for kite in latawiec %}
+
+                            <tr>
+                            <td>
+
+                            <li><a title="sprzet_detail" href="{% url 'sprzet_detail' kite.identyfikuj kite.pk %} ">{{ kite }}</a></li>
+
+                            {% endfor %}
+                            {% else %}
+                                <tr>
+                                <td>
+                            <p style="color:gray;">Nie dodałeś jeszcze żadnych latawców</p>
+                        </td>
+                    </tr>
+                            {% endif %}
+                            </td>
+
+					</tr>
+					</tbody>
+			</table>
+		</div>
+		<div class="col-md-4">
+			<table class="table table-hover table-condensed">
+				<thead>
+					    <tr>
+						<th>
+						Deski
+						</th>
+					    </tr>
+				</thead>
+				<tbody>
+					<tr class="success">
+						{% if deska %}
+                        {% for deski in deska %}
+                        <tr>
+                        <td>
+                        <li><a title="sprzet_detail" href="{% url 'sprzet_detail' deski.identyfikuj deski.pk %} ">{{ deski }}</a></li>
+                        {% endfor %}
+                        {% else %}
+                             <tr>
+                                <td>
+                            <p style="color:gray;">Nie dodałeś jeszcze żadnych desek</p>
+                                </td>
+                        </tr>
+                        {% endif %}
+                        </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-md-4">
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th>
+							Trapezy
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+                        {% if trapez %}
+                        {% for trap in trapez %}
+                        <tr>
+                        <td>
+                        <li><a title="sprzet_detail" href="{% url 'sprzet_detail' trap.identyfikuj trap.pk %} ">{{ trap }} {{trap.rozmiar}}</a></li>
+                        {% endfor %}
+                        {% else %}
+                             <tr>
+                                <td>
+                            <p style="color:gray;">Nie dodałeś jeszcze żadnych trapezów</p>
+                                </td>
+                    </tr>
+                        {% endif %}
+                        </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}

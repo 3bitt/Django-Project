@@ -1,0 +1,64 @@
+{% extends 'sprzet/header.html' %}
+{% block content %}
+<h1 style="color:blue">{{ set }}</h1>
+<hr />
+
+<h3><span style="background-color: #ccccb3;">Latawiec:</span></h3>
+{% if set.latawiec %}
+<span style="font-weight:bold; font-size:large"> {{ set.latawiec }} </span>
+{#<a href="{% url 'sprzet_detail' zestaw.latawiec.identyfikuj zestaw.latawiec.id %}"><span style="font-weight:bold; font-size:large"> {{ set.latawiec }}</span></a>#}
+{% else %}
+<span style="color:gray;">--- nie dodałeś latawca ---</span>
+{% endif %}
+<br><br>
+
+
+
+<h3><span style="background-color: #ccccb3;">Deska:</span></h3>
+{% if set.deska %}
+<span style="font-weight:bold; font-size:large"> {{ set.deska }} </span>
+{#<a href="{% url 'sprzet_detail' zestaw.latawiec.identyfikuj zestaw.latawiec.id %}"> {{ set.deska }}</a>#}
+{% else %}
+<span style="color:gray;">--- nie dodałeś deski ---</span>
+{% endif %}
+<br><br>
+
+
+<h3><span style="background-color: #ccccb3;">Trapez:</span></h3>
+{% if set.trapez %}
+<span style="font-weight:bold; font-size:large"> {{ set.trapez }} </span>
+{#<a href="{% url 'sprzet_detail' zestaw.latawiec.identyfikuj zestaw.latawiec.id %}"> {{ set.trapez }}</a>#}
+{% else %}
+<span style="color:gray;">--- nie dodałeś trapezu ---</span>
+{% endif %}
+<br><br><br><br>
+
+
+{% if form %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="Submit" value="Zapisz" class="btn btn-success">
+</form>
+
+{% else %}
+<a href="{% url 'set_detail_edit' set.id %}">
+    <button type="button" class="btn btn-warning">Edytuj</button>
+</a>
+<u style="color:white">takitamukryty</u>
+<a href="{% url 'are_you_sure' set.identyfikuj set.id %}">
+    <button type="button" class="btn btn-danger">Usuń</button>
+</a>
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

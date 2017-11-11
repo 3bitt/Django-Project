@@ -1,0 +1,29 @@
+{% extends 'sprzet/header.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<style>
+      img {
+    float:right;
+    margin: 0 700 60px 1px;
+}
+</style>
+<img src="http://imageshack.com/a/img923/7264/r7GXvC.jpg" style="width:250px;height:250px;">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Autor</title>
+</head>
+<body>
+
+Autor:  <h2>Jakub Trudzik</h2>
+
+<hr >
+<br><br>
+<a href="{% url 'index' %}">
+    <button type="button" class="btn btn-primary">Powrót</button>
+</a>
+</body>
+</html>
+
+{% endblock %}
